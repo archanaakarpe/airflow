@@ -1,0 +1,26 @@
+[2023-05-11T05:20:12.391+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T05:10:00+00:00 [queued]>
+[2023-05-11T05:20:12.404+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T05:10:00+00:00 [queued]>
+[2023-05-11T05:20:12.405+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 3
+[2023-05-11T05:20:12.421+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): scp_to_server> on 2023-05-11 05:10:00+00:00
+[2023-05-11T05:20:12.429+0000] {standard_task_runner.py:57} INFO - Started process 1978 to run task
+[2023-05-11T05:20:12.434+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Mongodb_backup', 'scp_to_server', 'scheduled__2023-05-11T05:10:00+00:00', '--job-id', '139', '--raw', '--subdir', 'DAGS_FOLDER/dagforbackup.py', '--cfg-path', '/tmp/tmphfufwdet']
+[2023-05-11T05:20:12.436+0000] {standard_task_runner.py:85} INFO - Job 139: Subtask scp_to_server
+[2023-05-11T05:20:12.503+0000] {task_command.py:410} INFO - Running <TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T05:10:00+00:00 [running]> on host b06a232a05e5
+[2023-05-11T05:20:12.596+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Mongodb_backup' AIRFLOW_CTX_TASK_ID='scp_to_server' AIRFLOW_CTX_EXECUTION_DATE='2023-05-11T05:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-11T05:10:00+00:00'
+[2023-05-11T05:20:12.598+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-11T05:20:12.599+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', ' \nscp -i ~/Downloads/3-mar-2023-N.Virginia.pem /Users/archanakarpe/Documents/saraff/MongoConnectionDags/dags/dbbackup.sh ubuntu@107.23.137.161:/home/ubuntu']
+[2023-05-11T05:20:12.614+0000] {subprocess.py:86} INFO - Output:
+[2023-05-11T05:20:12.647+0000] {subprocess.py:93} INFO - Warning: Identity file /home/***/Downloads/3-mar-2023-N.Virginia.pem not accessible: No such file or directory.
+[2023-05-11T05:20:13.751+0000] {subprocess.py:93} INFO - Host key verification failed.
+[2023-05-11T05:20:13.754+0000] {subprocess.py:93} INFO - lost connection
+[2023-05-11T05:20:13.757+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-05-11T05:20:13.790+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 211, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-05-11T05:20:13.803+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Mongodb_backup, task_id=scp_to_server, execution_date=20230511T051000, start_date=20230511T052012, end_date=20230511T052013
+[2023-05-11T05:20:13.826+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 139 for task scp_to_server (Bash command failed. The command returned a non-zero exit code 1.; 1978)
+[2023-05-11T05:20:13.902+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-11T05:20:13.944+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

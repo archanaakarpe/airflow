@@ -1,0 +1,61 @@
+[2023-05-11T06:12:00.387+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: scp_dag.scp_to_server scheduled__2023-05-11T05:40:00+00:00 [queued]>
+[2023-05-11T06:12:00.396+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: scp_dag.scp_to_server scheduled__2023-05-11T05:40:00+00:00 [queued]>
+[2023-05-11T06:12:00.397+0000] {taskinstance.py:1331} INFO - Starting attempt 7 of 8
+[2023-05-11T06:12:00.411+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): scp_to_server> on 2023-05-11 05:40:00+00:00
+[2023-05-11T06:12:00.417+0000] {standard_task_runner.py:57} INFO - Started process 3090 to run task
+[2023-05-11T06:12:00.422+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'scp_dag', 'scp_to_server', 'scheduled__2023-05-11T05:40:00+00:00', '--job-id', '183', '--raw', '--subdir', 'DAGS_FOLDER/scp.py', '--cfg-path', '/tmp/tmp222uo8pf']
+[2023-05-11T06:12:00.423+0000] {standard_task_runner.py:85} INFO - Job 183: Subtask scp_to_server
+[2023-05-11T06:12:00.489+0000] {task_command.py:410} INFO - Running <TaskInstance: scp_dag.scp_to_server scheduled__2023-05-11T05:40:00+00:00 [running]> on host b06a232a05e5
+[2023-05-11T06:12:00.578+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='scp_dag' AIRFLOW_CTX_TASK_ID='scp_to_server' AIRFLOW_CTX_EXECUTION_DATE='2023-05-11T05:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='7' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-11T05:40:00+00:00'
+[2023-05-11T06:12:00.580+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-11T06:12:00.581+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', ' \nwhoami\npwd\ncat /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem \nls -lthr /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem \ncat /opt/***/dags/dbbackup.sh \nls -lthr /opt/***/dags/dbbackup.sh \nscp -i /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem /opt/***/dags/dbbackup.sh ubuntu@107.23.137.161:/home/ubuntu']
+[2023-05-11T06:12:00.596+0000] {subprocess.py:86} INFO - Output:
+[2023-05-11T06:12:00.604+0000] {subprocess.py:93} INFO - default
+[2023-05-11T06:12:00.605+0000] {subprocess.py:93} INFO - /tmp/***tmpoytxu7cm
+[2023-05-11T06:12:00.608+0000] {subprocess.py:93} INFO - -----BEGIN RSA PRIVATE KEY-----
+[2023-05-11T06:12:00.609+0000] {subprocess.py:93} INFO - MIIEowIBAAKCAQEArQJ5Ki1diU06Pji3q5L4hyoOX1qCHHZNstpa/22S5vnhaE5f
+[2023-05-11T06:12:00.609+0000] {subprocess.py:93} INFO - 0QMBTmAXDYtg+w/LWCQIfKEgtg4ZrbGEwqhaoUc2KsV07zenKYPohQ3a5roQ0pdI
+[2023-05-11T06:12:00.610+0000] {subprocess.py:93} INFO - 9p3g/xWokJZeNRUu6uyHuwTTflfsVFGkKAVK99A3zQL/dBJNVdjv0zinicbX5O3+
+[2023-05-11T06:12:00.611+0000] {subprocess.py:93} INFO - DXP5J8l/OwiUuQhgc8lOb7kkobRrKLsmrqMyGU5C4NkvM6OACmhJ1QkXvoZqjn3A
+[2023-05-11T06:12:00.612+0000] {subprocess.py:93} INFO - huSBMSTzakr634VVp/fHWuYFtPX09yqSWNYPNS5fmmyo4qwAMn5GH0C9t7fBpjV1
+[2023-05-11T06:12:00.613+0000] {subprocess.py:93} INFO - 4gwqfCGiZcon11oerC7OwBCOB0JqoSaZ0NCqmwIDAQABAoIBAGUZceaEtgka+PMN
+[2023-05-11T06:12:00.614+0000] {subprocess.py:93} INFO - P79iVhreJ6HvCONK+qKOWOi0hki1MtQ6IGHKSMQdALuofBaaJzCtdcwmeDAK01Sd
+[2023-05-11T06:12:00.616+0000] {subprocess.py:93} INFO - zL/Xk4Z1T6D03B1CP0vSSlkePJHhnx0AzOFYZveJF4TOaeTJKS6c48AU1OYayP6I
+[2023-05-11T06:12:00.617+0000] {subprocess.py:93} INFO - 6s18Mk/X/BOwMckJPOnyqEqc68JlWZ2Wp3zyTsRyqRP3DAhLoCcIy7v7YY2Rcggq
+[2023-05-11T06:12:00.618+0000] {subprocess.py:93} INFO - PRtjJY3vA/4GPWV9eeK1E35pmAo9uZ07SsUeAjjDaaTctU92xiQK294oRqMAwM2R
+[2023-05-11T06:12:00.618+0000] {subprocess.py:93} INFO - aWQJzpmCleNNVi+QUQOUkcChF7jO8eNWGEWpp97gEv0eV8iZ+v20g5LRo58vkpOH
+[2023-05-11T06:12:00.619+0000] {subprocess.py:93} INFO - ebXDzhECgYEA6zVoyyh4MXyQ4263cvmgZscCVELoRke+r75CsG8hfMNNgrLh5Gue
+[2023-05-11T06:12:00.620+0000] {subprocess.py:93} INFO - w9b2QravzPw+16RkuDTGg62lu1kxMx9SbvufB5rin0rjVGSO9ISS/j2Qgg16CX4K
+[2023-05-11T06:12:00.620+0000] {subprocess.py:93} INFO - zMSCWy4Al4RuQxh+3MltS6kVGfJ7tWJK/dCAR+Xke6beccVwp8G+aMMCgYEAvE2M
+[2023-05-11T06:12:00.622+0000] {subprocess.py:93} INFO - jtttCEU5hVcilkVyrld+2hxMJ9sGriLeuky9kAdXasAJRw2ZbMDYTrbIpBmCKlPZ
+[2023-05-11T06:12:00.623+0000] {subprocess.py:93} INFO - RlnhI10F2crGwaWG15nG4NvXHbDVUvgUIG+82UMr4jsFE1aMb0cK2VIJs2nBYnaH
+[2023-05-11T06:12:00.624+0000] {subprocess.py:93} INFO - /SxCqowcxVNkVv2ZqaP0oFMzuQLmAKG6anrzWUkCgYAyV5UdXoUTOnEcbJcRIcKm
+[2023-05-11T06:12:00.625+0000] {subprocess.py:93} INFO - HNQvyr5CRJrYrKVDdBW7yWVuovDcXfh2PC0rLETGX/rnVsVD8+/FQUZmqflw0rRn
+[2023-05-11T06:12:00.625+0000] {subprocess.py:93} INFO - Eq4AB7OXmoS7jGZYiYOYrP6gB1hmbbbMCwdHkroHtA2RiM2mXepptj/Q9OhrcyVP
+[2023-05-11T06:12:00.626+0000] {subprocess.py:93} INFO - 2++I8/iKSrXzremlzj791wKBgQCWdyEpxgyJ30bnVYk9qqDIzwF+J75y2oGsBBEV
+[2023-05-11T06:12:00.627+0000] {subprocess.py:93} INFO - rNyMilE/69N+A0/lpvMxcr1A42EvkXC81nUgXOSf83h+pFXrUeWpKAHsp7DOa40p
+[2023-05-11T06:12:00.627+0000] {subprocess.py:93} INFO - nh+5PAOE8sRLf40YHhx9KyC1THxKwYxIsWVUAkG7K7eyC1MOSwTeV52s6LQBLTpY
+[2023-05-11T06:12:00.628+0000] {subprocess.py:93} INFO - e4aYgQKBgBtl1P3NF97jYYCViLbhj5mJAo9u2Act93yeP4aGRYQC5MceKeW+UhiB
+[2023-05-11T06:12:00.629+0000] {subprocess.py:93} INFO - vIxW/5fqYq3pKBB0KBV/fEW9bds4cObT0a4Lv4haeItXtmL0AmHRNAaqZwhe4ovI
+[2023-05-11T06:12:00.630+0000] {subprocess.py:93} INFO - hTsrWmpUpw2ZQ+FctG0LMviEKFX5Sg11t56bHM6lVlGoUYdXKu1I
+[2023-05-11T06:12:00.630+0000] {subprocess.py:93} INFO - -----END RSA PRIVATE KEY------r-------- 1 default root 1.7K May 11 05:04 /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem
+[2023-05-11T06:12:00.631+0000] {subprocess.py:93} INFO - #!/bin/bash
+[2023-05-11T06:12:00.631+0000] {subprocess.py:93} INFO - 
+[2023-05-11T06:12:00.632+0000] {subprocess.py:93} INFO - #Backup Data from control.brandsonroad.com
+[2023-05-11T06:12:00.632+0000] {subprocess.py:93} INFO - cd ~
+[2023-05-11T06:12:00.633+0000] {subprocess.py:93} INFO - ls -lthr
+[2023-05-11T06:12:00.634+0000] {subprocess.py:93} INFO - mongodump --forceTableScan --db led --gzip --archive=mongoBackup_$(date +"%Y-%m-%d.gz")
+[2023-05-11T06:12:00.634+0000] {subprocess.py:93} INFO - ls -lthr-rw-r--r-- 1 default root 166 May 10 05:08 /opt/***/dags/dbbackup.sh
+[2023-05-11T06:12:01.697+0000] {subprocess.py:93} INFO - Host key verification failed.
+[2023-05-11T06:12:01.700+0000] {subprocess.py:93} INFO - lost connection
+[2023-05-11T06:12:01.702+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-05-11T06:12:01.728+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 211, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-05-11T06:12:01.733+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=scp_dag, task_id=scp_to_server, execution_date=20230511T054000, start_date=20230511T061200, end_date=20230511T061201
+[2023-05-11T06:12:01.753+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 183 for task scp_to_server (Bash command failed. The command returned a non-zero exit code 1.; 3090)
+[2023-05-11T06:12:01.779+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-11T06:12:01.810+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

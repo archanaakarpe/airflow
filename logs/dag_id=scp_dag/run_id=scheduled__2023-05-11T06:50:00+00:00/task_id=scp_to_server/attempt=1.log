@@ -1,0 +1,25 @@
+[2023-05-11T07:00:01.391+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: scp_dag.scp_to_server scheduled__2023-05-11T06:50:00+00:00 [queued]>
+[2023-05-11T07:00:01.400+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: scp_dag.scp_to_server scheduled__2023-05-11T06:50:00+00:00 [queued]>
+[2023-05-11T07:00:01.401+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2023-05-11T07:00:01.414+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): scp_to_server> on 2023-05-11 06:50:00+00:00
+[2023-05-11T07:00:01.423+0000] {standard_task_runner.py:57} INFO - Started process 3567 to run task
+[2023-05-11T07:00:01.429+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'scp_dag', 'scp_to_server', 'scheduled__2023-05-11T06:50:00+00:00', '--job-id', '218', '--raw', '--subdir', 'DAGS_FOLDER/scp.py', '--cfg-path', '/tmp/tmp95y13ee1']
+[2023-05-11T07:00:01.430+0000] {standard_task_runner.py:85} INFO - Job 218: Subtask scp_to_server
+[2023-05-11T07:00:01.519+0000] {task_command.py:410} INFO - Running <TaskInstance: scp_dag.scp_to_server scheduled__2023-05-11T06:50:00+00:00 [running]> on host b06a232a05e5
+[2023-05-11T07:00:01.625+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='scp_dag' AIRFLOW_CTX_TASK_ID='scp_to_server' AIRFLOW_CTX_EXECUTION_DATE='2023-05-11T06:50:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-11T06:50:00+00:00'
+[2023-05-11T07:00:01.627+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-11T07:00:01.629+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', ' \nscp -o StrictHostKeyChecking=No -i /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem /opt/***/dags/dbbackup.sh ubuntu@107.23.137.161:/home/ubuntu']
+[2023-05-11T07:00:01.645+0000] {subprocess.py:86} INFO - Output:
+[2023-05-11T07:00:08.677+0000] {subprocess.py:93} INFO - ssh: connect to host 107.23.137.161 port 22: Connection refused
+[2023-05-11T07:00:08.685+0000] {subprocess.py:93} INFO - lost connection
+[2023-05-11T07:00:08.692+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-05-11T07:00:08.740+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 211, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-05-11T07:00:08.748+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=scp_dag, task_id=scp_to_server, execution_date=20230511T065000, start_date=20230511T070001, end_date=20230511T070008
+[2023-05-11T07:00:08.766+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 218 for task scp_to_server (Bash command failed. The command returned a non-zero exit code 1.; 3567)
+[2023-05-11T07:00:08.796+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-11T07:00:08.822+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,20 @@
+[2023-05-10T05:00:00.918+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: testing_stuff.test_ssh_operator scheduled__2023-05-10T04:50:00+00:00 [queued]>
+[2023-05-10T05:00:00.930+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: testing_stuff.test_ssh_operator scheduled__2023-05-10T04:50:00+00:00 [queued]>
+[2023-05-10T05:00:00.931+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2023-05-10T05:00:00.947+0000] {taskinstance.py:1350} INFO - Executing <Task(SSHOperator): test_ssh_operator> on 2023-05-10 04:50:00+00:00
+[2023-05-10T05:00:00.956+0000] {standard_task_runner.py:57} INFO - Started process 869 to run task
+[2023-05-10T05:00:00.963+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'testing_stuff', 'test_ssh_operator', 'scheduled__2023-05-10T04:50:00+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmpeioxkeey']
+[2023-05-10T05:00:00.965+0000] {standard_task_runner.py:85} INFO - Job 49: Subtask test_ssh_operator
+[2023-05-10T05:00:01.070+0000] {task_command.py:410} INFO - Running <TaskInstance: testing_stuff.test_ssh_operator scheduled__2023-05-10T04:50:00+00:00 [running]> on host 448394b5800f
+[2023-05-10T05:00:01.225+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='testing_stuff' AIRFLOW_CTX_TASK_ID='test_ssh_operator' AIRFLOW_CTX_EXECUTION_DATE='2023-05-10T04:50:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-10T04:50:00+00:00'
+[2023-05-10T05:00:01.227+0000] {ssh.py:135} INFO - Creating ssh_client
+[2023-05-10T05:00:01.378+0000] {ssh.py:112} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2023-05-10T05:00:01.404+0000] {base.py:73} INFO - Using connection ID 'ssh_conn' for task execution.
+[2023-05-10T05:00:01.489+0000] {ssh.py:299} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2023-05-10T05:00:02.063+0000] {transport.py:1873} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2023-05-10T05:00:03.185+0000] {transport.py:1873} INFO - Authentication (publickey) successful!
+[2023-05-10T05:00:03.192+0000] {ssh.py:476} INFO - Running command: 
+ls -lthr >> /tmp/dag-output
+[2023-05-10T05:00:04.335+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=testing_stuff, task_id=test_ssh_operator, execution_date=20230510T045000, start_date=20230510T050000, end_date=20230510T050004
+[2023-05-10T05:00:04.410+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-10T05:00:04.470+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

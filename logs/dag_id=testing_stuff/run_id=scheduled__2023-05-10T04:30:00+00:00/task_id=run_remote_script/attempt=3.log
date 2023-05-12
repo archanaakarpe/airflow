@@ -1,0 +1,27 @@
+[2023-05-10T04:45:04.862+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: testing_stuff.run_remote_script scheduled__2023-05-10T04:30:00+00:00 [queued]>
+[2023-05-10T04:45:04.871+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: testing_stuff.run_remote_script scheduled__2023-05-10T04:30:00+00:00 [queued]>
+[2023-05-10T04:45:04.872+0000] {taskinstance.py:1331} INFO - Starting attempt 3 of 4
+[2023-05-10T04:45:04.885+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): run_remote_script> on 2023-05-10 04:30:00+00:00
+[2023-05-10T04:45:04.890+0000] {standard_task_runner.py:57} INFO - Started process 537 to run task
+[2023-05-10T04:45:04.898+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'testing_stuff', 'run_remote_script', 'scheduled__2023-05-10T04:30:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmpryv5uvdu']
+[2023-05-10T04:45:04.899+0000] {standard_task_runner.py:85} INFO - Job 38: Subtask run_remote_script
+[2023-05-10T04:45:04.995+0000] {task_command.py:410} INFO - Running <TaskInstance: testing_stuff.run_remote_script scheduled__2023-05-10T04:30:00+00:00 [running]> on host 448394b5800f
+[2023-05-10T04:45:05.104+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='testing_stuff' AIRFLOW_CTX_TASK_ID='run_remote_script' AIRFLOW_CTX_EXECUTION_DATE='2023-05-10T04:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-10T04:30:00+00:00'
+[2023-05-10T04:45:05.107+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-10T04:45:05.108+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '#!/bin/bash\n\nssh -i ~/Downloads/3-mar-2023-N.Virginia.pem ubuntu@100.26.33.254\n\nll']
+[2023-05-10T04:45:05.122+0000] {subprocess.py:86} INFO - Output:
+[2023-05-10T04:45:05.135+0000] {subprocess.py:93} INFO - Warning: Identity file /home/***/Downloads/3-mar-2023-N.Virginia.pem not accessible: No such file or directory.
+[2023-05-10T04:45:05.137+0000] {subprocess.py:93} INFO - Pseudo-terminal will not be allocated because stdin is not a terminal.
+[2023-05-10T04:45:06.382+0000] {subprocess.py:93} INFO - Host key verification failed.
+[2023-05-10T04:45:06.388+0000] {subprocess.py:93} INFO - /bin/bash: line 5: ll: command not found
+[2023-05-10T04:45:06.391+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2023-05-10T04:45:06.425+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 211, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2023-05-10T04:45:06.438+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=testing_stuff, task_id=run_remote_script, execution_date=20230510T043000, start_date=20230510T044504, end_date=20230510T044506
+[2023-05-10T04:45:06.460+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 38 for task run_remote_script (Bash command failed. The command returned a non-zero exit code 127.; 537)
+[2023-05-10T04:45:06.502+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-10T04:45:06.533+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,35 @@
+[2023-05-11T04:36:50.685+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Mongodb_backup.test_ssh_operator manual__2023-05-11T04:21:51.780089+00:00 [queued]>
+[2023-05-11T04:36:50.700+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Mongodb_backup.test_ssh_operator manual__2023-05-11T04:21:51.780089+00:00 [queued]>
+[2023-05-11T04:36:50.701+0000] {taskinstance.py:1331} INFO - Starting attempt 6 of 7
+[2023-05-11T04:36:50.719+0000] {taskinstance.py:1350} INFO - Executing <Task(SSHOperator): test_ssh_operator> on 2023-05-11 04:21:51.780089+00:00
+[2023-05-11T04:36:50.726+0000] {standard_task_runner.py:57} INFO - Started process 1116 to run task
+[2023-05-11T04:36:50.733+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Mongodb_backup', 'test_ssh_operator', 'manual__2023-05-11T04:21:51.780089+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/dagforbackup.py', '--cfg-path', '/tmp/tmpkpsb4h1z']
+[2023-05-11T04:36:50.735+0000] {standard_task_runner.py:85} INFO - Job 107: Subtask test_ssh_operator
+[2023-05-11T04:36:50.810+0000] {task_command.py:410} INFO - Running <TaskInstance: Mongodb_backup.test_ssh_operator manual__2023-05-11T04:21:51.780089+00:00 [running]> on host b06a232a05e5
+[2023-05-11T04:36:50.919+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Mongodb_backup' AIRFLOW_CTX_TASK_ID='test_ssh_operator' AIRFLOW_CTX_EXECUTION_DATE='2023-05-11T04:21:51.780089+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-11T04:21:51.780089+00:00'
+[2023-05-11T04:36:50.920+0000] {ssh.py:135} INFO - Creating ssh_client
+[2023-05-11T04:36:50.956+0000] {ssh.py:112} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2023-05-11T04:36:50.970+0000] {base.py:73} INFO - Using connection ID 'ssh_conn' for task execution.
+[2023-05-11T04:36:51.035+0000] {ssh.py:299} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2023-05-11T04:36:52.659+0000] {transport.py:1873} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2023-05-11T04:36:53.496+0000] {transport.py:1873} INFO - Authentication (publickey) successful!
+[2023-05-11T04:36:53.500+0000] {ssh.py:476} INFO - Running command: 
+echo 'Running shell script'
+whoami
+sh -x /home/ubuntu/dbbackup.sh
+[2023-05-11T04:36:54.316+0000] {ssh.py:522} INFO - Running shell script
+[2023-05-11T04:36:54.318+0000] {ssh.py:527} WARNING - + cd /home/ubuntu
+[2023-05-11T04:36:54.319+0000] {ssh.py:527} WARNING - + ls -lthr
+[2023-05-11T04:36:54.320+0000] {ssh.py:527} WARNING - + date
+[2023-05-11T04:36:54.321+0000] {ssh.py:522} INFO - ubuntu
+[2023-05-11T04:36:54.326+0000] {ssh.py:522} INFO - total 4.0K
+[2023-05-11T04:36:54.329+0000] {ssh.py:522} INFO - -rw-r--r-- 1 ubuntu ubuntu 166 May 11 04:07 dbbackup.sh
+[2023-05-11T04:36:54.574+0000] {ssh.py:527} WARNING -  +%Y-%m-%d.gz
+[2023-05-11T04:36:54.575+0000] {ssh.py:527} WARNING - + mongodump --forceTableScan --db led --gzip --archive=mongoBackup_2023-05-11.gz
+[2023-05-11T04:36:54.576+0000] {ssh.py:527} WARNING - /home/ubuntu/dbbackup.sh: 6: mongodump: not found
+[2023-05-11T04:36:54.576+0000] {ssh.py:527} WARNING - + ls -lthr
+[2023-05-11T04:36:54.577+0000] {ssh.py:522} INFO - total 4.0K
+[2023-05-11T04:36:54.578+0000] {ssh.py:522} INFO - -rw-r--r-- 1 ubuntu ubuntu 166 May 11 04:07 dbbackup.sh
+[2023-05-11T04:36:54.628+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Mongodb_backup, task_id=test_ssh_operator, execution_date=20230511T042151, start_date=20230511T043650, end_date=20230511T043654
+[2023-05-11T04:36:54.682+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-11T04:36:54.707+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

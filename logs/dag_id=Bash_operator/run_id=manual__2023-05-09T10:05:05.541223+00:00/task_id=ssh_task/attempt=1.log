@@ -1,0 +1,30 @@
+[2023-05-09T10:47:37.968+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Bash_operator.ssh_task manual__2023-05-09T10:05:05.541223+00:00 [queued]>
+[2023-05-09T10:47:38.688+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Bash_operator.ssh_task manual__2023-05-09T10:05:05.541223+00:00 [queued]>
+[2023-05-09T10:47:38.694+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2023-05-09T10:47:38.724+0000] {taskinstance.py:1350} INFO - Executing <Task(SSHOperator): ssh_task> on 2023-05-09 10:05:05.541223+00:00
+[2023-05-09T10:47:38.753+0000] {standard_task_runner.py:57} INFO - Started process 882 to run task
+[2023-05-09T10:47:38.777+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Bash_operator', 'ssh_task', 'manual__2023-05-09T10:05:05.541223+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp72zy432w']
+[2023-05-09T10:47:38.783+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask ssh_task
+[2023-05-09T10:47:38.928+0000] {task_command.py:410} INFO - Running <TaskInstance: Bash_operator.ssh_task manual__2023-05-09T10:05:05.541223+00:00 [running]> on host f4c8e63ff1d9
+[2023-05-09T10:47:39.114+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Bash_operator' AIRFLOW_CTX_TASK_ID='ssh_task' AIRFLOW_CTX_EXECUTION_DATE='2023-05-09T10:05:05.541223+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-09T10:05:05.541223+00:00'
+[2023-05-09T10:47:39.118+0000] {ssh.py:135} INFO - Creating ssh_client
+[2023-05-09T10:47:39.355+0000] {ssh.py:112} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2023-05-09T10:47:39.384+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/operators/ssh.py", line 172, in execute
+    with self.get_ssh_client() as ssh_client:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/operators/ssh.py", line 136, in get_ssh_client
+    return self.get_hook().get_conn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/operators/ssh.py", line 117, in get_hook
+    banner_timeout=self.banner_timeout,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/hooks/ssh.py", line 150, in __init__
+    conn = self.get_connection(self.ssh_conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 434, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `my_ssh_conn` isn't defined
+[2023-05-09T10:47:39.391+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=Bash_operator, task_id=ssh_task, execution_date=20230509T100505, start_date=20230509T104737, end_date=20230509T104739
+[2023-05-09T10:47:39.407+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 15 for task ssh_task (The conn_id `my_ssh_conn` isn't defined; 882)
+[2023-05-09T10:47:39.488+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-09T10:47:39.532+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

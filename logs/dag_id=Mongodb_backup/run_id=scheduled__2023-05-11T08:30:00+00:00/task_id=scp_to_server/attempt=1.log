@@ -1,0 +1,23 @@
+[2023-05-11T08:43:41.689+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T08:30:00+00:00 [queued]>
+[2023-05-11T08:43:41.703+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T08:30:00+00:00 [queued]>
+[2023-05-11T08:43:41.704+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2023-05-11T08:43:41.742+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): scp_to_server> on 2023-05-11 08:30:00+00:00
+[2023-05-11T08:43:41.755+0000] {standard_task_runner.py:57} INFO - Started process 3622 to run task
+[2023-05-11T08:43:41.767+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Mongodb_backup', 'scp_to_server', 'scheduled__2023-05-11T08:30:00+00:00', '--job-id', '227', '--raw', '--subdir', 'DAGS_FOLDER/dagforbackup.py', '--cfg-path', '/tmp/tmpdb1en9rm']
+[2023-05-11T08:43:41.769+0000] {standard_task_runner.py:85} INFO - Job 227: Subtask scp_to_server
+[2023-05-11T08:43:41.879+0000] {task_command.py:410} INFO - Running <TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T08:30:00+00:00 [running]> on host b06a232a05e5
+[2023-05-11T08:43:42.100+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Mongodb_backup' AIRFLOW_CTX_TASK_ID='scp_to_server' AIRFLOW_CTX_EXECUTION_DATE='2023-05-11T08:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-11T08:30:00+00:00'
+[2023-05-11T08:43:42.106+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-11T08:43:42.109+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', ' \nscp -o StrictHostKeyChecking=No -i /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem /opt/***/dags/dbbackup.sh ubuntu@107.23.137.161:/home/ubuntu']
+[2023-05-11T08:43:42.148+0000] {subprocess.py:86} INFO - Output:
+[2023-05-11T08:59:47.838+0000] {local_task_job_runner.py:292} WARNING - DagRun timed out after 0:16:07.455685.
+[2023-05-11T08:59:52.976+0000] {local_task_job_runner.py:292} WARNING - DagRun timed out after 0:16:12.594254.
+[2023-05-11T08:59:52.980+0000] {local_task_job_runner.py:299} WARNING - State of this instance has been externally set to skipped. Terminating instance.
+[2023-05-11T08:59:52.989+0000] {process_utils.py:135} INFO - Sending Signals.SIGTERM to group 3622. PIDs of all processes in the group: [3623, 3625, 3622]
+[2023-05-11T08:59:52.991+0000] {process_utils.py:86} INFO - Sending the signal Signals.SIGTERM to group 3622
+[2023-05-11T08:59:52.997+0000] {taskinstance.py:1540} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-05-11T08:59:53.011+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2023-05-11T08:59:53.129+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=3623, status='terminated', started='08:43:42') (3623) terminated with exit code None
+[2023-05-11T08:59:53.132+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=3625, status='terminated', started='08:43:42') (3625) terminated with exit code None
+[2023-05-11T08:59:53.133+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=3622, status='terminated', exitcode=0, started='08:43:41') (3622) terminated with exit code 0

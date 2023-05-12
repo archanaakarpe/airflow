@@ -1,0 +1,18 @@
+[2023-05-10T05:02:31.976+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: testing_stuff.run_remote_script scheduled__2023-05-10T04:50:00+00:00 [queued]>
+[2023-05-10T05:02:31.985+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: testing_stuff.run_remote_script scheduled__2023-05-10T04:50:00+00:00 [queued]>
+[2023-05-10T05:02:31.986+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 3
+[2023-05-10T05:02:31.999+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): run_remote_script> on 2023-05-10 04:50:00+00:00
+[2023-05-10T05:02:32.004+0000] {standard_task_runner.py:57} INFO - Started process 929 to run task
+[2023-05-10T05:02:32.011+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'testing_stuff', 'run_remote_script', 'scheduled__2023-05-10T04:50:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp0ubpialu']
+[2023-05-10T05:02:32.013+0000] {standard_task_runner.py:85} INFO - Job 53: Subtask run_remote_script
+[2023-05-10T05:02:32.079+0000] {task_command.py:410} INFO - Running <TaskInstance: testing_stuff.run_remote_script scheduled__2023-05-10T04:50:00+00:00 [running]> on host 448394b5800f
+[2023-05-10T05:02:32.189+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='testing_stuff' AIRFLOW_CTX_TASK_ID='run_remote_script' AIRFLOW_CTX_EXECUTION_DATE='2023-05-10T04:50:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-10T04:50:00+00:00'
+[2023-05-10T05:02:32.191+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-10T05:02:32.193+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '#!/bin/bash\n\ncd ~\npwd']
+[2023-05-10T05:02:32.206+0000] {subprocess.py:86} INFO - Output:
+[2023-05-10T05:02:32.212+0000] {subprocess.py:93} INFO - /home/***
+[2023-05-10T05:02:32.213+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-10T05:02:32.255+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=testing_stuff, task_id=run_remote_script, execution_date=20230510T045000, start_date=20230510T050231, end_date=20230510T050232
+[2023-05-10T05:02:32.302+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-10T05:02:32.324+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

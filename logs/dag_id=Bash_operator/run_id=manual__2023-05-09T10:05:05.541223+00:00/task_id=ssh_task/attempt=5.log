@@ -1,0 +1,32 @@
+[2023-05-09T10:52:37.032+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Bash_operator.ssh_task manual__2023-05-09T10:05:05.541223+00:00 [queued]>
+[2023-05-09T10:52:43.128+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Bash_operator.ssh_task manual__2023-05-09T10:05:05.541223+00:00 [queued]>
+[2023-05-09T10:52:43.134+0000] {taskinstance.py:1331} INFO - Starting attempt 5 of 5
+[2023-05-09T10:52:43.327+0000] {taskinstance.py:1350} INFO - Executing <Task(SSHOperator): ssh_task> on 2023-05-09 10:05:05.541223+00:00
+[2023-05-09T10:52:43.411+0000] {standard_task_runner.py:57} INFO - Started process 989 to run task
+[2023-05-09T10:52:43.503+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Bash_operator', 'ssh_task', 'manual__2023-05-09T10:05:05.541223+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmpxvhp650_']
+[2023-05-09T10:52:43.551+0000] {standard_task_runner.py:85} INFO - Job 19: Subtask ssh_task
+[2023-05-09T10:52:44.064+0000] {task_command.py:410} INFO - Running <TaskInstance: Bash_operator.ssh_task manual__2023-05-09T10:05:05.541223+00:00 [running]> on host f4c8e63ff1d9
+[2023-05-09T10:52:44.429+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Bash_operator' AIRFLOW_CTX_TASK_ID='ssh_task' AIRFLOW_CTX_EXECUTION_DATE='2023-05-09T10:05:05.541223+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-09T10:05:05.541223+00:00'
+[2023-05-09T10:52:44.442+0000] {ssh.py:135} INFO - Creating ssh_client
+[2023-05-09T10:52:44.568+0000] {ssh.py:112} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2023-05-09T10:52:44.597+0000] {base.py:73} INFO - Using connection ID 'ssh_conn' for task execution.
+[2023-05-09T10:52:44.748+0000] {ssh.py:299} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2023-05-09T10:52:45.345+0000] {transport.py:1873} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2023-05-09T10:52:46.761+0000] {transport.py:1873} INFO - Authentication (publickey) successful!
+[2023-05-09T10:52:46.778+0000] {ssh.py:476} INFO - Running command: ssh -i ~/Downloads/3-mar-2023-N.Virginia.pem ubuntu@18.234.147.114
+[2023-05-09T10:52:47.720+0000] {ssh.py:527} WARNING - Warning: Identity file /home/ubuntu/Downloads/3-mar-2023-N.Virginia.pem not accessible: No such file or directory.
+[2023-05-09T10:52:47.730+0000] {ssh.py:527} WARNING - Pseudo-terminal will not be allocated because stdin is not a terminal.
+[2023-05-09T10:52:47.735+0000] {ssh.py:527} WARNING - Host key verification failed.
+[2023-05-09T10:52:47.988+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/operators/ssh.py", line 173, in execute
+    result = self.run_ssh_client_command(ssh_client, self.command, context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/operators/ssh.py", line 161, in run_ssh_client_command
+    self.raise_for_status(exit_status, agg_stderr, context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/ssh/operators/ssh.py", line 154, in raise_for_status
+    raise AirflowException(f"SSH operator error: exit status = {exit_status}")
+airflow.exceptions.AirflowException: SSH operator error: exit status = 255
+[2023-05-09T10:52:48.005+0000] {taskinstance.py:1373} INFO - Marking task as FAILED. dag_id=Bash_operator, task_id=ssh_task, execution_date=20230509T100505, start_date=20230509T105237, end_date=20230509T105248
+[2023-05-09T10:52:48.076+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 19 for task ssh_task (SSH operator error: exit status = 255; 989)
+[2023-05-09T10:52:48.693+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2023-05-09T10:52:48.843+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

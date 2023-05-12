@@ -1,0 +1,17 @@
+[2023-05-11T06:20:09.123+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T05:30:00+00:00 [queued]>
+[2023-05-11T06:20:09.132+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T05:30:00+00:00 [queued]>
+[2023-05-11T06:20:09.133+0000] {taskinstance.py:1331} INFO - Starting attempt 5 of 6
+[2023-05-11T06:20:09.145+0000] {taskinstance.py:1350} INFO - Executing <Task(BashOperator): scp_to_server> on 2023-05-11 05:30:00+00:00
+[2023-05-11T06:20:09.152+0000] {standard_task_runner.py:57} INFO - Started process 3315 to run task
+[2023-05-11T06:20:09.158+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'Mongodb_backup', 'scp_to_server', 'scheduled__2023-05-11T05:30:00+00:00', '--job-id', '197', '--raw', '--subdir', 'DAGS_FOLDER/dagforbackup.py', '--cfg-path', '/tmp/tmpn25gxkdl']
+[2023-05-11T06:20:09.159+0000] {standard_task_runner.py:85} INFO - Job 197: Subtask scp_to_server
+[2023-05-11T06:20:09.244+0000] {task_command.py:410} INFO - Running <TaskInstance: Mongodb_backup.scp_to_server scheduled__2023-05-11T05:30:00+00:00 [running]> on host b06a232a05e5
+[2023-05-11T06:20:09.348+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Mongodb_backup' AIRFLOW_CTX_TASK_ID='scp_to_server' AIRFLOW_CTX_EXECUTION_DATE='2023-05-11T05:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-05-11T05:30:00+00:00'
+[2023-05-11T06:20:09.354+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-11T06:20:09.357+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', ' \nscp -o StrictHostKeyChecking=No -i /opt/***/dags/ssh_keys/3-mar-2023-N.Virginia.pem /opt/***/dags/dbbackup.sh ubuntu@107.23.137.161:/home/ubuntu']
+[2023-05-11T06:20:09.379+0000] {subprocess.py:86} INFO - Output:
+[2023-05-11T06:20:13.000+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-11T06:20:13.076+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=Mongodb_backup, task_id=scp_to_server, execution_date=20230511T053000, start_date=20230511T062009, end_date=20230511T062013
+[2023-05-11T06:20:13.115+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2023-05-11T06:20:13.189+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
